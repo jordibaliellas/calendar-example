@@ -1,0 +1,37 @@
+.main {
+    --spacing: 20px;
+
+    display: grid;
+    height: 100%;
+    width: 100%;
+    padding: var(--spacing);
+    gap: var(--spacing);
+    background-color: var(--color-primary);
+    color: var(--color-primary-contrast);
+
+    grid-template-columns: 5fr 2fr;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas:
+        "day-information day-information"
+        "calendar reminder-list";
+
+    * {
+        display: block;
+        background-color: var(--color-light);
+        color: var(--color-dark);
+        border-radius: 5px;
+    }
+
+    app-day-information {
+        grid-area: day-information;
+    }
+
+    app-calendar {
+        grid-area: calendar;
+    }
+
+    app-reminder-list {
+        grid-area: reminder-list;
+    }
+
+}
