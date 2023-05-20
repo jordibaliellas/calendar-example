@@ -4,3 +4,5 @@ export interface Reminder {
     date: Date
     description?: string
 }
+
+export type Reminders = Readonly<Record<string, Reminder>>

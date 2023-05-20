@@ -1,10 +1,10 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
-import { Reminder } from '../interfaces/reminder.interface';
+import { Reminder, Reminders } from '../interfaces/reminder.interface';
 import { remindersName } from './reminders.reducer';
 
-export const selectRemindersMap = createFeatureSelector<ReadonlyMap<string, Reminder>>(remindersName);
+export const selectRemindersMap = createFeatureSelector<Reminders>(remindersName);
 
 export const selectReminders = createSelector(
     selectRemindersMap,
-    (reminders) => [...reminders.values()],
+    (reminders) => ([...Object.values(reminders)])
 )
