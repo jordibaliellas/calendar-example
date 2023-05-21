@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ConfirmDialogComponent } from 'src/app/domains/ui/components/confirm-dialog/confirm-dialog.component';
+import { EditReminderComponent } from '../edit-reminder/edit-reminder.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Reminder } from '../../interfaces/reminder.interface';
+import { RemindersActions } from '../../state/reminders.actions';
 import { Store } from '@ngrx/store';
 import { firstValueFrom } from 'rxjs';
 import { selectReminders } from '../../state/reminders.selectors';
@@ -26,8 +28,20 @@ export class ReminderListComponent {
         return reminder.id;
     }
 
-    public edit(reminder: Reminder) {
-        console.log('edit', reminder);
+    public async edit(reminder: Reminder) {
+        const reminderEdited: Reminder = await firstValueFrom(
+            this.dialog
+                .open(EditReminderComponent, {
+                    data: reminder,
+                    width: '50%',
+                    minWidth: '300px',
+                })
+                .afterClosed(),
+        );
+
+        if (!reminderEdited) return;
+
+        this.store.dispatch(RemindersActions.editReminder(reminderEdited));
     }
 
     public async remove(reminder: Reminder) {
@@ -40,6 +54,9 @@ export class ReminderListComponent {
         );
 
         if (!deleteItem) return;
-        console.log('delete', reminder);
+
+        this.store.dispatch(
+            RemindersActions.removeReminder({ reminderId: reminder.id }),
+        );
     }
 }

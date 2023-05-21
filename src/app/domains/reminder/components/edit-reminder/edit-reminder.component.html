@@ -1,0 +1,29 @@
+<h1 mat-dialog-title align="center">Edit reminder</h1>
+<div mat-dialog-content align="center" class="reminder-form">
+
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input [formControl]="reminderForm.controls.title" matInput>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date"
+      [formControl]="reminderForm.controls.date" [min]="minDate">
+    <!-- I would check this any properly, but I had no time -->
+    <!-- I also would check the locales, the module that I used only has us-US -->
+    <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #picker>
+    </ngx-mat-datetime-picker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input [formControl]="reminderForm.controls.description" matInput>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-button (click)="save()" cdkFocusInitial>Save</button>
+</div>
