@@ -7,4 +7,16 @@
     --color-secondary-contrast: var(--color-dark);
     --color-tertiary: #b57f50ff;
     --color-tertiary-contrast: var(--color-white);
+    --color-danger: rgb(245, 69, 69);
+    --color-danger-contrast: var(--color-white);
+    --color-gray: rgb(125, 125, 125);
+    --color-gray-contrast: var(--color-white);
+}
+
+.danger {
+    color: var(--color-danger);
+}
+
+.gray {
+    color: var(--color-gray);
 }

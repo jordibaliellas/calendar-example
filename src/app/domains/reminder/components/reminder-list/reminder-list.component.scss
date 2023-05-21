@@ -1,0 +1,27 @@
+:host {
+    padding: 10px;
+}
+
+.reminders {
+    display: grid;
+    gap: 10px;
+
+    .reminder {
+        display: grid;
+        column-gap: 5px;
+        grid-template-columns: minmax(24px, auto) 1fr minmax(min-content, auto);
+
+        .actions {
+            >* {
+                cursor: pointer;
+                transform: scale(.8);
+            }
+        }
+
+        .description {
+            grid-column: 2;
+            grid-row: 2;
+            font-size: 12px;
+        }
+    }
+}
