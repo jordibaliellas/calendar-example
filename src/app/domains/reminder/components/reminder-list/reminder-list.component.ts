@@ -28,7 +28,36 @@ export class ReminderListComponent {
         return reminder.id;
     }
 
-    public async edit(reminder: Reminder) {
+    /**
+     *
+     * It opens the dialog to create a new reminder and dispatches the action to create it
+     */
+    public async add(): Promise<void> {
+        const reminder: Omit<Reminder, 'id'> = {
+            title: '',
+            date: new Date(),
+            description: '',
+        };
+
+        const reminderEdited: Reminder = await firstValueFrom(
+            this.dialog
+                .open(EditReminderComponent, {
+                    data: reminder,
+                    width: '50%',
+                    minWidth: '300px',
+                })
+                .afterClosed(),
+        );
+        if (!reminderEdited) return;
+
+        this.store.dispatch(RemindersActions.createReminder(reminderEdited));
+    }
+
+    /**
+     *
+     * It opens the dialog to edit a reminder and dispatches the action to edit it
+     */
+    public async edit(reminder: Reminder): Promise<void> {
         const reminderEdited: Reminder = await firstValueFrom(
             this.dialog
                 .open(EditReminderComponent, {
@@ -44,7 +73,11 @@ export class ReminderListComponent {
         this.store.dispatch(RemindersActions.editReminder(reminderEdited));
     }
 
-    public async remove(reminder: Reminder) {
+    /**
+     *
+     * It opens the dialog to confirm that the user wants to remove the reminder
+     */
+    public async remove(reminder: Reminder): Promise<void> {
         const deleteItem = await firstValueFrom(
             this.dialog
                 .open(ConfirmDialogComponent, {

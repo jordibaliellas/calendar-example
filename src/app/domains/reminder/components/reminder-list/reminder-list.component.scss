@@ -2,6 +2,16 @@
     padding: 10px;
 }
 
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  mat-icon {
+    cursor: pointer;
+  }
+}
+
 .reminders {
     display: grid;
     gap: 10px;
