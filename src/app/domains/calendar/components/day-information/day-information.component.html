@@ -1,1 +1,26 @@
-<p>day-information works!</p>
+<div class="day-container">
+  <div class="title-container">
+    <h3>{{ day$ | async | date : 'dd/MM/yyyy' }}</h3>
+  </div>
+
+  <div class="day-content">
+    <div class="day-reminders">
+      <h5>Reminders</h5>
+      <div class="reminders">
+        <div *ngFor="let reminder of dayReminders$ | async; trackBy:identifyReminder" class="reminder">
+          <mat-icon>schedule</mat-icon>
+          <div>
+            {{ reminder.title }}
+          </div>
+
+          <div class="description gray">
+            ({{ reminder.description}})
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="random-day-info">
+      <h5>Random information</h5>
+      <p>{{ randomDayInformation$ | async }}</p>
+    </div>
+  </div>

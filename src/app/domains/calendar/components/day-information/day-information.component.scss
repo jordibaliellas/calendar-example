@@ -1,0 +1,46 @@
+:host {
+  padding: 10px;
+}
+
+.day-container {
+  display: grid;
+  grid-template-rows: min-content minmax(0, 1fr);
+  height: 100%;
+}
+
+.title-container {
+  text-align: center;
+}
+
+.day-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 10px;
+  height: 100%;
+
+  .day-reminders {
+    height: 100%;
+    overflow: auto;
+
+    .reminders {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .reminder {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+
+  }
+}
+
+.random-day-info {
+  height: 100%;
+  overflow: auto;
+}
+
+h5 {
+  margin: 0;
+}
