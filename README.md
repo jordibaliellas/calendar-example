@@ -2,6 +2,25 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
+## Description
+
+This project is a calender app with reminders and also and api integrated to get iformation about the selected day.
+
+## Improvements
+
+There are a lot of improvements that I would have done but I had no time:
+
+-   More tests, I tested only one component to show that I can make some tests.
+-   Better design, as you can see the design has been done really quickly
+-   Better implementation of the external api, I used the url directly on the service
+-   Better structure of scss, there are to many things in the styles.scss
+
+Probably forgetting some other points
+
+## Installation server
+
+Use node 18 and run `npm install` to get all the dependecies that the project needs to run.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
