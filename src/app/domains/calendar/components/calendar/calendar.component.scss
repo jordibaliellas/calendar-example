@@ -1,0 +1,41 @@
+:host {
+  padding: 10px;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  mat-icon {
+    cursor: pointer;
+  }
+}
+
+.calendar {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+
+  .day {
+    cursor: pointer;
+    text-align: center;
+
+    &.selected {
+      background-color: #e0e0e0;
+    }
+
+    &.out-of-month {
+      background-color: #9e9e9e;
+    }
+  }
+}

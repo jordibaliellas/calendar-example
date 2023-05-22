@@ -1,1 +1,14 @@
-<p>calendar works!</p>
+<div class='calendar-container'>
+  <div class="title-container">
+    <mat-icon class="gray" (click)="previousMonth()">chevron_left</mat-icon>
+    <h3>{{ day$ | async | date:'MMMM' }}</h3>
+    <mat-icon class="gray" (click)="nextMonth()">chevron_right</mat-icon>
+  </div>
+
+  <div class="calendar">
+    <div class="day" (click)="selectDay(day)" [class.selected]="day.selected" [class.out-of-month]="day.outOfMonth"
+      *ngFor="let day of monthDays$ | async">
+      {{ day.dayNumber }}
+    </div>
+  </div>
+</div>

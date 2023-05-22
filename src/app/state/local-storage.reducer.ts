@@ -1,5 +1,6 @@
+import { mergeRight, pick } from 'ramda';
+
 import { ActionReducer } from '@ngrx/store';
-import { pick } from 'ramda';
 
 /**
  *
@@ -47,7 +48,7 @@ export function localStorageMetaReducer(
 
         if (initializing) {
             initializing = false;
-            return getState(localStorageKey);
+            return mergeRight(nextState, getState(localStorageKey));
         }
 
         const stateToSave = pick(stateKeys, nextState);
