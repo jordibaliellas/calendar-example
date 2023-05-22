@@ -1,20 +1,22 @@
-<div class="title-container">
-  <h3>Your reminders</h3>
-  <mat-icon class="gray" (click)="add()">add</mat-icon>
-</div>
-<div class="reminders">
-  <div *ngFor="let reminder of reminders$ | async; trackBy:identifyReminder" class="reminder">
-    <mat-icon>schedule</mat-icon>
-    <div>
-      {{ reminder.title }} - {{ reminder.date | date }}
-    </div>
+<div class="reminders-container">
+  <div class="title-container">
+    <h3>Your reminders</h3>
+    <mat-icon class="gray" (click)="add()">add</mat-icon>
+  </div>
+  <div class="reminders">
+    <div *ngFor="let reminder of reminders$ | async; trackBy:identifyReminder" class="reminder">
+      <mat-icon>schedule</mat-icon>
+      <div>
+        {{ reminder.title }} - {{ reminder.date | date }}
+      </div>
 
-    <div class="actions">
-      <mat-icon class="gray" (click)="edit(reminder)">edit</mat-icon>
-      <mat-icon class="danger" (click)="remove(reminder)">delete</mat-icon>
-    </div>
-    <div class="description gray">
-      {{ reminder.description}}
+      <div class="actions">
+        <mat-icon class="gray" (click)="edit(reminder)">edit</mat-icon>
+        <mat-icon class="danger" (click)="remove(reminder)">delete</mat-icon>
+      </div>
+      <div class="description gray">
+        {{ reminder.description}}
+      </div>
     </div>
   </div>
 </div>

@@ -10,7 +10,7 @@
     color: var(--color-primary-contrast);
 
     grid-template-columns: 5fr 2fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 3fr);
     grid-template-areas:
         "day-information day-information"
         "calendar reminder-list";
