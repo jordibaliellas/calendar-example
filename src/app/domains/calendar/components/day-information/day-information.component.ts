@@ -34,13 +34,7 @@ export class DayInformationComponent {
     constructor(
         private store: Store,
         private dateInformationService: DateInformationService,
-    ) {
-        this.dateInformationService
-            .getRandomDateInfo(new Date())
-            .then((data) => {
-                console.log('finisshhh');
-            });
-    }
+    ) {}
 
     public identifyReminder(index: number, reminder: Reminder): string {
         return reminder.id;

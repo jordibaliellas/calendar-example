@@ -1,16 +1,18 @@
+import { DateInformationService } from './date-information.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { DateInformationService } from './date-information.service';
-
 describe('DateInformationService', () => {
-  let service: DateInformationService;
+    let service: DateInformationService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(DateInformationService);
-  });
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [HttpClientTestingModule],
+        });
+        service = TestBed.inject(DateInformationService);
+    });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+    it('should be created', () => {
+        expect(service).toBeTruthy();
+    });
 });

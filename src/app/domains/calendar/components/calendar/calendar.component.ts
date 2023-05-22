@@ -51,9 +51,7 @@ export class CalendarComponent {
         }),
     );
 
-    constructor(private store: Store) {
-        this.monthDays$.subscribe((days) => console.log('daysss:', days));
-    }
+    constructor(private store: Store) {}
 
     public previousMonth(): void {
         this.store.dispatch(CalendarActions.previousMonth());
