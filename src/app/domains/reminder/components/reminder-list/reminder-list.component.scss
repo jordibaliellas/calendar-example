@@ -23,11 +23,13 @@
     gap: 10px;
     height: 100%;
     overflow: auto;
+    grid-template-rows: min-content;
 
     .reminder {
         display: grid;
         column-gap: 5px;
         grid-template-columns: minmax(24px, auto) 1fr minmax(min-content, auto);
+        grid-template-rows: min-content min-content;
 
         .actions {
             >* {
